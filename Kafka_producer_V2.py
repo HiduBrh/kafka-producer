@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[58]:
-
-
 import os 
 import pandas as pd 
 import csv
@@ -13,9 +7,6 @@ from kafka import TopicPartition
 from kafka import KafkaProducer
 import json 
 import requests
-
-
-# In[82]:
 
 
 producer = KafkaProducer(bootstrap_servers='127.0.0.1:29092')
@@ -35,9 +26,3 @@ for i in range(df.shape[0]):
     print(out)
     producer.send("raw_station_data", value=out.encode('utf-8'), key="mykey".encode('utf-8'))
     time.sleep(0.5)
-
-
-
-
-
-
